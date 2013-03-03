@@ -103,7 +103,9 @@ for item in items:
             print "downloading: " + item[1]["link"] 
             print "    and saving to: %s" % DOWNLOAD_DIR
    
-        download(item[1]["link"].encode('unicode_escape'))
+#        download(item[1]["link"].encode('unicode_escape'))
+# temporary hack to make daily tv torrents work
+        download(item[1].enclosures[0].href.encode('unicode_escape'))
         downloaded_torrent = True
 
 if downloaded_torrent == False:
